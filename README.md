@@ -1,1 +1,3 @@
 # try_bigquery
+
+PythonでのBigQueryからのデータの取り出しとBigQueryテーブルへの追記のやり方を確認する
