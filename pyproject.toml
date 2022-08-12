@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "try_bigquery"
+version = "0.1.0"
+description = ""
+authors = ["Haruhiko Takada <haruhiko.takada@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+pyproject-flake8 = "^0.0.1-alpha.5"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+max-line-length = 88
+ignore = "E203"
+exclude = ".venv"
+
+[tool.isort]
+profile = "black"
