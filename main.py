@@ -13,7 +13,7 @@ FROM `bigquery-public-data.chicago_crime.crime`
 GROUP BY month
 ORDER BY month ASC
 """
-table = client.get_table("tfandkusu.try_bq.crime_month")
+table = client.get_table("tfandkusu.try_bigquery.crime_month")
 query_job = client.query(query)
 
 for row in query_job:
@@ -26,8 +26,9 @@ for row in query_job:
         population = POPULATIONS[1]
     else:
         population = POPULATIONS[2]
-    value = 100000.0 * count / population
-    json_rows = [{"month": month, "value": value}]
-    errors = client.insert_rows_json(table, json_rows)
-    if errors != []:
-        print(errors)
+    if month < "2022/08":
+        value = 100000.0 * count / population
+        json_rows = [{"month": month, "value": value}]
+        errors = client.insert_rows_json(table, json_rows)
+        if errors != []:
+            print(errors)
