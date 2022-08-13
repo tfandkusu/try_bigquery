@@ -32,3 +32,4 @@ for row in query_job:
         errors = client.insert_rows_json(table, json_rows)
         if errors != []:
             print(errors)
+            exit(1)
